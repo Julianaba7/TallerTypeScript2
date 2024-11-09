@@ -33,16 +33,18 @@ function tabla(series: Serie[]): void {
     }
 }
 
-// Definimos la función `showSerieDetails` fuera de `tabla` para que esté disponible globalmente
+
 function showSerieDetails(id: number): void {
     const serie = series.find(s => s.id === id);
     if (serie && detailsContainer) {
-        // Usamos backticks para interpolar las variables en el HTML
+        
         detailsContainer.innerHTML = `
-            <img src= "${serie.imagen}" class="card-img-top" alt="${serie.name}" >
-            <h3>${serie.name}</h3>
-            <p>${serie.description}</p>
-            <a href="${serie.url}" target="_blank">${serie.url}</a>
+            <div class="card" style="width: 18rem;">
+                <img src= "${serie.imagen}" class="card-img-top" alt="${serie.name} " >
+                <div class="card-body">
+                    <h5 class="card-title">${serie.name}</h5>
+                    <p class="card-text">${serie.description}</p>
+                <a href="${serie.url}" class="btn btn-primary" target="_blank">Más información</a>
         `;
     }
 }
